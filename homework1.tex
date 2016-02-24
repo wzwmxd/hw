@@ -1,0 +1,53 @@
+\documentclass{amsart}
+\usepackage{amssymb}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+%    Absolute value notation
+\newcommand{\abs}[1]{\lvert#1\rvert}
+%    Blank box placeholder for figures (to avoid requiring any
+%    particular graphics capabilities for printing this document).
+\newcommand{\blankbox}[2]{%
+	\parbox{\columnwidth}{\centering
+		%    Set fboxsep to 0 so that the actual size of the box will match the
+		%    given measurements more closely.
+		\setlength{\fboxsep}{0pt}%
+		\fbox{\raisebox{0pt}[#2]{\hspace{#1}}}%
+	}%
+}
+\begin{document}
+	\title{Homework of Harmonic Analysis}
+	\author{Xu Shi Jie}
+	\email{xushijie@mail.ustc.edu.cn}
+	\maketitle
+\section{lecture 1}
+\subsection{1}
+Suppose $g\in \mathcal{S}$ is a tempered function, $\phi_t$ is an approximation to the identity, prove $ \lim_{t\to 0}\phi_t=\delta_0$.
+\begin{proof}
+	$\because g\in\mathcal{S}$ is a tempered function, $\therefore \| g\|_1<\infty$, There exists a infinity M, $M=\sup_{x\in \mathbb{R}^n}|g(x)|<\infty$.
+	$\because \phi_t(g)=\int_{\mathbb{R}^n}g(y)\phi_t(y)\, \mathrm{d}y=\int_{\mathbb{R}^n}g(y)\frac{1}{t^n}\phi(\frac{y}{t})\,\mathrm{d}y=\int_{\mathbb{R}^n}g(ty)\phi(y)\,\mathrm{d}y$, $|g(ty)\phi(y)|\leq M|\phi(y)|$, $\phi(y)$ is integrable, by Lebesgue control convergence theorem, $g(ty)\phi(ty)$ is integrable and \\$\lim_{t\to 0}\phi_t(g)=\int_{\mathbb{R}^n}(\lim_{t\to 0}g(ty))\phi(y)\,\mathrm{d}y=g(0)=\delta_0(g)$. Hence $\lim_{t\to 0}\phi_t=\delta_0$
+\subsection{2}
+Suppose $T_t(t>0)$ is a family of sublinear operators. $T^*$ is the maximal operator of them. proof that $\{f\in L^p(\mathbb{R}^n):\,\lim_{t\to 0}\,T_t f(x)$ exists for a.e. $ x\in \mathbb{R}^n\}$ is closed subset of $\mathbb{R}^n$.
+\proof Suppose $f_n\in \Gamma\triangleq\{f\in L^p(\mathbb{R}^n):\,\lim_{t\to 0}\,T_t f(x)$ exists for a.e. $ x\in \mathbb{R}^n\}$, and $f_n \to f$.Let $A_s\triangleq\{x\in\mathbb{R}^n:\,|\overline{\lim}_{t\to 0} T_t f(x)-\underline{\lim}_{t\to 0} T_t f(x)|>s\}$, for $\forall s$, we need to proof that $|A_s=0|$.
+$
+\because|\overline{\lim}_{t\to 0} T_t f(x)-\underline{\lim}_{t\to 0} T_t f|
+=|\overline{\lim}_{t\to 0} T_t f(x)-\underline{\lim}_{t\to 0} T_t f_n+\underline{\lim}_{t\to 0} T_t f_n-\overline{\lim}_{t\to 0} T_t f_n+\overline{\lim}_{t\to 0} T_t f_n\underline{\lim}_{t\to 0} T_t f|\leq |\overline{\lim}_{t\to 0} T_t f(x)-\underline{\lim}_{t\to 0} T_t f_n|+|\underline{\lim}_{t\to 0} T_t f_n-\overline{\lim}_{t\to 0} T_t f_n|+|\overline{\lim}_{t\to 0} T_t f_n\underline{\lim}_{t\to 0} T_t f|=|\overline{\lim}_{t\to 0} T_t f(x)-\underline{\lim}_{t\to 0} T_t f_n|+|\overline{\lim}_{t\to 0} T_t f_n\underline{\lim}_{t\to 0} T_t f|\leq |\overline{\lim}_{t\to 0} T_t (f-f_n)|+|\overline{\lim}_{t\to 0} T_t(f_n-f)|\leq 2T^*(f-f_n)
+$
+
+$\therefore A_s\subset \{x\in\mathbb{R}^n:\,T^*(f-f_n)(x)>\frac{s}{2}\}$, because $T^*$ is a weak-$(p,q)$ operator, we have $|A_s|\leq(\frac{C\|f-f_n\|_p}{\frac{s}{2}})^q\to 0$, as $n\to \infty$. $\therefore |A_s|=0$.
+\subsection{3}
+Prove $\int_X\,|f(x)|^p\mathrm{d}\mu(x)=p\int_0^{\infty}s^{p-1}\lambda_f(s)\,\mathrm{d}s$.
+\proof $\because \int_X |f(x)|^p\mathrm{d}\mu(x)=\int_X \int_0^{|f(x)|} ps^{p-1}\mathrm{d}s\,\mathrm{d}\mu(x)=\int_X\int_o^{\infty}ps^{p-1}\chi_{\{s<|f(x)|\}}\mathrm{d}s\,\mathrm{d}\mu(x)$, by Fubini theorem, $=\int_{0}^{\infty}ps^{p-1}\int_X \chi_{\{|f(x)|>s\}}\mathrm{d}\mu(x)\,\mathrm{d}s=\int_{0}^{\infty} ps^{p-1}\lambda_f(s)\mathring{d}s$.
+\end{proof}
+\subsection{3}
+Suppose sublinear operator T is a weak-$(p_0,p_0)$ and weak-($p_1,p_1$), prove $\|T\|_(p,p)\leq C(p)\|T\|_{(p_0,p_0)}^{1-\theta}\|T\|_{(p_1,p_1)}^\theta$, when $\frac{1}{p}=\frac{1-\theta}{p_0}+\frac{\theta}{p_1}$.
+\proof
+
+
+\end{document}
