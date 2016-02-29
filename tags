@@ -1,0 +1,11 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+1	homework1.tex	/^\\section{lecture 1}$/;"	u
+2	homework1.tex	/^	$\\because \\phi_t(g)=\\int_{\\mathbb{R}^n}g(y)\\phi_t(y)\\, \\mathrm{d}y=\\int_{\\mathbb{R}^n}g(y)\\frac{1}{t^n}\\phi(\\frac{y}{t})\\,\\mathrm{d}y=\\int_{\\mathbb{R}^n}g(ty)\\phi(y)\\,\\mathrm{d}y$, $|g(ty)\\phi(y)|\\leq M|\\phi(y)|$, $\\phi(y)$ is integrable, by Lebesgue control convergence theorem, $g(ty)\\phi(ty)$ is integrable and \\\\$\\lim_{t\\to 0}\\phi_t(g)=\\int_{\\mathbb{R}^n}(\\lim_{t\\to 0}g(ty))\\phi(y)\\,\\mathrm{d}y=g(0)=\\delta_0(g)$. Hence $\\lim_{t\\to 0}\\phi_t=\\delta_0\$$/;"	u
+3	homework1.tex	/^$\\therefore A_s\\subset \\{x\\in\\mathbb{R}^n:\\,T^*(f-f_n)(x)>\\frac{s}{2}\\}$, because $T^*$ is a weak-$(p,q)$ operator, we have $|A_s|\\leq(\\frac{C\\|f-f_n\\|_p}{\\frac{s}{2}})^q\\to 0$, as $n\\to \\infty$. $\\therefore |A_s|=0$.$/;"	u
+3	homework1.tex	/^\\end{proof}$/;"	u
+lecture 1	homework1.tex	/^	\\maketitle$/;"	s

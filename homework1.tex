@@ -26,28 +26,63 @@
 	\author{Xu Shi Jie}
 	\email{xushijie@mail.ustc.edu.cn}
 	\maketitle
-\section{lecture 1}
-\subsection{1}
+\section{Hardy-Littlewood maximal operator}
+\subsection{approximation to the identity}
+\subsubsection{}
 Suppose $g\in \mathcal{S}$ is a tempered function, $\phi_t$ is an approximation to the identity, prove $ \lim_{t\to 0}\phi_t=\delta_0$.
 \begin{proof}
 	$\because g\in\mathcal{S}$ is a tempered function, $\therefore \| g\|_1<\infty$, There exists a infinity M, $M=\sup_{x\in \mathbb{R}^n}|g(x)|<\infty$.
 	$\because \phi_t(g)=\int_{\mathbb{R}^n}g(y)\phi_t(y)\, \mathrm{d}y=\int_{\mathbb{R}^n}g(y)\frac{1}{t^n}\phi(\frac{y}{t})\,\mathrm{d}y=\int_{\mathbb{R}^n}g(ty)\phi(y)\,\mathrm{d}y$, $|g(ty)\phi(y)|\leq M|\phi(y)|$, $\phi(y)$ is integrable, by Lebesgue control convergence theorem, $g(ty)\phi(ty)$ is integrable and \\$\lim_{t\to 0}\phi_t(g)=\int_{\mathbb{R}^n}(\lim_{t\to 0}g(ty))\phi(y)\,\mathrm{d}y=g(0)=\delta_0(g)$. Hence $\lim_{t\to 0}\phi_t=\delta_0$
-\subsection{2}
+\end{proof}
+\subsection{weakly bounded operator}
+\subsubsection{}
 Suppose $T_t(t>0)$ is a family of sublinear operators. $T^*$ is the maximal operator of them. proof that $\{f\in L^p(\mathbb{R}^n):\,\lim_{t\to 0}\,T_t f(x)$ exists for a.e. $ x\in \mathbb{R}^n\}$ is closed subset of $\mathbb{R}^n$.
-\proof Suppose $f_n\in \Gamma\triangleq\{f\in L^p(\mathbb{R}^n):\,\lim_{t\to 0}\,T_t f(x)$ exists for a.e. $ x\in \mathbb{R}^n\}$, and $f_n \to f$.Let $A_s\triangleq\{x\in\mathbb{R}^n:\,|\overline{\lim}_{t\to 0} T_t f(x)-\underline{\lim}_{t\to 0} T_t f(x)|>s\}$, for $\forall s$, we need to proof that $|A_s=0|$.
+\begin{proof} Suppose $f_n\in \Gamma\triangleq\{f\in L^p(\mathbb{R}^n):\,\lim_{t\to 0}\,T_t f(x)$ exists for a.e. $ x\in \mathbb{R}^n\}$, and $f_n \to f$.Let $A_s\triangleq\{x\in\mathbb{R}^n:\,|\overline{\lim}_{t\to 0} T_t f(x)-\underline{\lim}_{t\to 0} T_t f(x)|>s\}$, for $\forall s$, we need to proof that $|A_s=0|$.
 $
 \because|\overline{\lim}_{t\to 0} T_t f(x)-\underline{\lim}_{t\to 0} T_t f|
 =|\overline{\lim}_{t\to 0} T_t f(x)-\underline{\lim}_{t\to 0} T_t f_n+\underline{\lim}_{t\to 0} T_t f_n-\overline{\lim}_{t\to 0} T_t f_n+\overline{\lim}_{t\to 0} T_t f_n\underline{\lim}_{t\to 0} T_t f|\leq |\overline{\lim}_{t\to 0} T_t f(x)-\underline{\lim}_{t\to 0} T_t f_n|+|\underline{\lim}_{t\to 0} T_t f_n-\overline{\lim}_{t\to 0} T_t f_n|+|\overline{\lim}_{t\to 0} T_t f_n\underline{\lim}_{t\to 0} T_t f|=|\overline{\lim}_{t\to 0} T_t f(x)-\underline{\lim}_{t\to 0} T_t f_n|+|\overline{\lim}_{t\to 0} T_t f_n\underline{\lim}_{t\to 0} T_t f|\leq |\overline{\lim}_{t\to 0} T_t (f-f_n)|+|\overline{\lim}_{t\to 0} T_t(f_n-f)|\leq 2T^*(f-f_n)
 $
 
 $\therefore A_s\subset \{x\in\mathbb{R}^n:\,T^*(f-f_n)(x)>\frac{s}{2}\}$, because $T^*$ is a weak-$(p,q)$ operator, we have $|A_s|\leq(\frac{C\|f-f_n\|_p}{\frac{s}{2}})^q\to 0$, as $n\to \infty$. $\therefore |A_s|=0$.
-\subsection{3}
-Prove $\int_X\,|f(x)|^p\mathrm{d}\mu(x)=p\int_0^{\infty}s^{p-1}\lambda_f(s)\,\mathrm{d}s$.
-\proof $\because \int_X |f(x)|^p\mathrm{d}\mu(x)=\int_X \int_0^{|f(x)|} ps^{p-1}\mathrm{d}s\,\mathrm{d}\mu(x)=\int_X\int_o^{\infty}ps^{p-1}\chi_{\{s<|f(x)|\}}\mathrm{d}s\,\mathrm{d}\mu(x)$, by Fubini theorem, $=\int_{0}^{\infty}ps^{p-1}\int_X \chi_{\{|f(x)|>s\}}\mathrm{d}\mu(x)\,\mathrm{d}s=\int_{0}^{\infty} ps^{p-1}\lambda_f(s)\mathring{d}s$.
 \end{proof}
-\subsection{3}
+\subsection{Marcinkiewicz theorem}
+\subsubsection{}
+Prove $\int_X\,|f(x)|^p\mathrm{d}\mu(x)=p\int_0^{\infty}s^{p-1}\lambda_f(s)\,\mathrm{d}s$.
+\begin{proof}
+$\because \int_X |f(x)|^p\mathrm{d}\mu(x)=\int_X \int_0^{|f(x)|} ps^{p-1}\mathrm{d}s\,\mathrm{d}\mu(x)=\int_X\int_o^{\infty}ps^{p-1}\chi_{\{s<|f(x)|\}}\mathrm{d}s\,\mathrm{d}\mu(x)$, by Fubini theorem, $=\int_{0}^{\infty}ps^{p-1}\int_X \chi_{\{|f(x)|>s\}}\mathrm{d}\mu(x)\,\mathrm{d}s=\int_{0}^{\infty} ps^{p-1}\lambda_f(s)\mathrm{d}s$.
+\end{proof}
+\subsubsection{}
 Suppose sublinear operator T is a weak-$(p_0,p_0)$ and weak-($p_1,p_1$), prove $\|T\|_(p,p)\leq C(p)\|T\|_{(p_0,p_0)}^{1-\theta}\|T\|_{(p_1,p_1)}^\theta$, when $\frac{1}{p}=\frac{1-\theta}{p_0}+\frac{\theta}{p_1}$.
-\proof
-
+\begin{proof}
+\end{proof}
+\subsection{Riesz-Thorin interpolation theorem}
+\subsubsection{}
+The assume f is finity in three-lines theorem can be reduced to $|f(z)|\leq e^{c|y|}, \forall z=x+iy$.
+\begin{proof}
+It suffices to prove that $\displaystyle\limsup_{|y|\to \infty, x\in [a,b]}\,|f_\epsilon(x+iy)|=0$.\\
+$\displaystyle\because|f_\epsilon(x+iy)|=\bigg|\frac{e^{\epsilon z^2} f(z)}{M_a^{\frac{b-z}{b-a}}M_b^{\frac{z-a}{b-a}}}\bigg|=\bigg|\frac{e^{\epsilon (x^2-y^2)} f(z)}{M_a^{\frac{b-z}{b-a}}M_b^{\frac{z-a}{b-a}}}\bigg|\leq\bigg|\frac{e^{\epsilon (x^2-y^2)-c|y|}}{M_a^{\frac{b-z}{b-a}}M_b^{\frac{z-a}{b-a}}}\bigg|\leq C e^{\epsilon(x^2-y^2)-c|y|}$\\
+$\therefore |f_\epsilon(x+iy)|\to 0$, as $|y|\to\infty$.
+\end{proof}
+\subsection{Hardy-Littlewood maximal function}
+\subsubsection{}
+Show that for $\forall x\in U$, $\exists B(x,r)$ s.t. $U\subset B(x,r)$, and $|U|\geq C|B(x,r)|$.
+\begin{proof}
+	
+\end{proof}
+\subsubsection{}
+Show that $Mf(x)$ is lower-semicontinuity.
+\begin{proof}
+Let $A\triangleq\{x\in\mathbb{R}^n:Mf(x)>s\}$,
+It suffices to prove A is open. \\
+For $\forall x\in A$, $\exists B$ is an open rectangle, s.t $x\in B$, and $\frac{1}{|B|}\int_B\,f(x)\,\mathrm{d}x>s$.\\
+$\therefore \forall y\in B$, $\frac{1}{|B|}\int_B\,f(x)\,\mathrm{d}x>s$, therefore $y\in A$, $B\subset A$, then A is open.
+\end{proof}
+\subsubsection{}
+Suppose $0\leq\phi\in L^1(\mathbb{R}^n)$ is increasely, prove that there exists $\{\phi_k\}$ s.t. $\{\phi_k\}$ is a sequence of simple functions, and $\phi_k\to\phi$ increasely.
+\begin{proof}
+	
+\end{proof}
+\subsection{Binary maximal function}
+\subsubsection{}
 
 \end{document}
